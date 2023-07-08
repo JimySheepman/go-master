@@ -1,0 +1,16 @@
+package main
+
+func main() {
+	// bits.Add()
+	// bits.Div()
+	// bits.LeadingZeros()
+	// bits.Len()
+	// bits.Mul()
+	// bits.Rem()
+	// bits.TrailingZeros()
+	// bits.Sub()
+	// bits.RotateLeft()
+	// bits.Reverse()
+	// bits.ReverseBytes()
+	// bits.OnesCount()
+}
