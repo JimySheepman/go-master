@@ -108,6 +108,18 @@ func test3() {
 	fmt.Println(expiresIn-60 > diff)
 }
 
+func test4() {
+	a := "2023-06-06T00:00:00Z"
+	format := "2006-01-02T15:04:05Z"
+	parsedDate, err := time.Parse(format, a)
+	if err != nil {
+
+		fmt.Println(err)
+	}
+
+	fmt.Println(parsedDate)
+}
+
 const RFC3339WithoutTimeZone = "2006-01-02T15:04:05"
 
 func TimeTr() {

@@ -7,6 +7,8 @@ import (
 
 	"github.com/JimySheepman/go-master/go-utils/logging/controllers"
 	"github.com/JimySheepman/go-master/go-utils/logging/database"
+	"github.com/JimySheepman/go-master/go-utils/logging/pkg/log"
+	"github.com/JimySheepman/go-master/go-utils/logging/pkg/pkg1"
 	"github.com/JimySheepman/go-master/go-utils/logging/services"
 	"go.uber.org/zap"
 )
@@ -67,4 +69,24 @@ func createLogger() *zap.Logger {
 
 	zap.NewProductionConfig()
 	return zap.Must(config.Build())
+}
+
+func fileLogger() {
+	file, err := os.OpenFile("./demo1.log", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		panic(err)
+	}
+	logger := log.New(file, log.InfoLevel)
+	log.ResetDefault(logger)
+	defer log.Sync()
+	log.Info("demo1:", log.String("app", "start ok"),
+		log.Int("major version", 2))
+	pkg1.Foo()
+}
+
+func demoLogger() {
+	log.Info("demo1:",
+		log.String("app", "start ok"),
+		log.Int("major version", 2),
+	)
 }
