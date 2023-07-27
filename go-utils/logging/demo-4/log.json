@@ -1,0 +1,44 @@
+[
+  {
+    "level": "error",
+    "timestamp": 1690447019.6759038,
+    "caller": "databases/databases.go:25",
+    "msg": "DoesAnythingDatabase error",
+    "requesdId": "abcdefghijklmn"
+  },
+  {
+    "level": "info",
+    "timestamp": 1690447020.6762366,
+    "caller": "databases/databases.go:22",
+    "msg": "DoesAnythingDatabase error",
+    "requesdId": "abcdefghijklmn",
+    "latency": 1.000330735
+  },
+  {
+    "level": "error",
+    "timestamp": 1690447020.676329,
+    "caller": "controllers/controllers.go:27",
+    "msg": "databaseClient.DoesAnythingDatabase error: DoesAnythingDatabase error",
+    "requesdId": "abcdefghijklmn"
+  },
+  {
+    "level": "error",
+    "timestamp": 1690447020.6763482,
+    "caller": "services/services.go:27",
+    "msg": "DoesAnythingService error: DoesAnythingController error: DoesAnythingDatabase error",
+    "requesdId": "abcdefghijklmn"
+  },
+  {
+    "level": "error",
+    "timestamp": 1690447021.4273458,
+    "caller": "ddd/main.go:69",
+    "msg": "/services/DoesAnythingService took 1.751415767s",
+    "requesdId": "abcdefghijklmn",
+    "fullMethod": "/services/DoesAnythingService",
+    "ip": "127.0.0.1",
+    "latency": 1.751415767,
+    "requestID": "abcdefghijklmn",
+    "request": { "name": "tester-name" },
+    "error": "DoesAnythingService error: DoesAnythingController error: DoesAnythingDatabase error"
+  }
+]

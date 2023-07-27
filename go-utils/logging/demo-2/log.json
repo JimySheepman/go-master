@@ -1,0 +1,13 @@
+{
+  "level": "error",
+  "ts": 1690273949.1966336,
+  "logger": "salary-api",
+  "caller": "aaa/main.go:53",
+  "msg": "info.FullMethod took 3.000256733s",
+  "fullMethod": "info.FullMethod",
+  "ip": "test-ip",
+  "latency": 3.000256733,
+  "requestID": "test-request-id",
+  "request": "test-request",
+  "error": "test-errors"
+}
