@@ -1,0 +1,113 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  DBML_FILE: "./schema.dbml"
+  DSN: "{{.DB_CONNECTION}}://{{.DB_USERNAME}}:{{.DB_PASSWORD}}@{{.DB_HOST}}:{{.DB_PORT}}/{{.DB_DATABASE}}?sslmode=disable"
+
+dotenv:
+  - ".env"
+
+tasks:
+  default:
+    desc: "Gettings started"
+    cmds:
+      - task: install
+      - task: service:up
+      - task: db:create
+      - task: migrate:up
+      - task: dev
+
+  install:
+    desc: "Install dependencies"
+    cmds:
+      - go install github.com/go-task/task/v3/cmd/task@latest
+      - go install github.com/cosmtrek/air@latest
+      - go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
+      - go install github.com/swaggo/swag/cmd/swag@latest
+
+  service:up:
+    desc: "Start services containers"
+    cmd: podman-compose up -d
+
+  service:down:
+    desc: "Stop services and remove containers"
+    cmd: podman-compose down
+
+  db:docs:
+    desc: "Generate database documentation from DBML file"
+    cmd: dbdocs build {{.DBML_FILE}}
+    requires:
+      vars:
+        - DBML_FILE
+
+  db:create:
+    desc: "Create database schema"
+    cmd: podman exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -c 'CREATE DATABASE {{.DB_DATABASE}};'"
+    requires:
+      vars:
+        - DB_USERNAME
+        - DB_DATABASE
+
+  db:drop:
+    desc: "Drop database schema"
+    cmd: podman exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -c 'DROP DATABASE {{.DB_DATABASE}};'"
+    requires:
+      vars:
+        - DB_USERNAME
+        - DB_DATABASE
+
+  db:cli:
+    desc: "Connect to database using command line interface"
+    cmd: podman exec -it postgres_gopos sh -c "psql -U {{.DB_USERNAME}} -d {{.DB_DATABASE}}"
+    requires:
+      vars:
+        - DB_USERNAME
+        - DB_DATABASE
+
+  migrate:up:
+    desc: "Run database migrations"
+    cmd: migrate -path ./internal/adapter/repository/postgres/migrations -database {{.DSN}} -verbose up {{.CLI_ARGS}}
+    requires:
+      vars:
+        - DSN
+
+  migrate:down:
+    desc: "Rollback database migrations"
+    cmd: migrate -path ./internal/adapter/repository/postgres/migrations -database {{.DSN}} -verbose down {{.CLI_ARGS}}
+    requires:
+      vars:
+        - DSN
+
+  redis:cli:
+    desc: "Connect to redis using command line interface"
+    cmd: podman exec -it redis_gopos redis-cli
+
+  dev:
+    desc: "Start development server"
+    cmd: air
+
+  build:
+    desc: "Build binary"
+    cmd: go build -o ./bin/{{.APP_NAME}} ./cmd/http/main.go
+    requires:
+      vars:
+        - APP_NAME
+
+  start:
+    desc: "Start binary"
+    cmd: ./bin/{{.APP_NAME}}
+    requires:
+      vars:
+        - APP_NAME
+
+  swag:
+    desc: "Generate swagger documentation"
+    cmds:
+      - swag fmt
+      - swag init -g ./cmd/http/main.go -o ./docs --parseInternal true
+
+  # test:
+  #   desc: "Run tests"
+  #   cmd: ginkgo -v -r --cover --race --keep-going --timeout=30s
