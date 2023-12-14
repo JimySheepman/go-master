@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  app:
+    container_name: "go-transactions"
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+
+  mysql:
+    container_name: "mysql-transactions"
+    image: mysql:5.7
+    env_file:
+      - .env
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./_scripts/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:rw
