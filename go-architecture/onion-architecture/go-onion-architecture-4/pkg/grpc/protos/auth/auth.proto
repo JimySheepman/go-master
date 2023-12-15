@@ -1,0 +1,19 @@
+syntax = "proto3";
+package auth;
+
+option go_package = "auth/presentation/grpc/go/auth";
+
+service Auth {
+  rpc VerifyAccessToken(VerifyAccessTokenRequest) returns (VerifyAccessTokenResponse) {}
+}
+
+message VerifyAccessTokenRequest {
+  string access_token = 1;
+}
+
+message VerifyAccessTokenResponse {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string image = 4;
+} 
