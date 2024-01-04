@@ -13,3 +13,4 @@
 - [go-11](https://github.com/astaxie/build-web-application-with-golang/blob/master/en/preface.md)
 - [go-12](https://github.com/GoesToEleven/GolangTraining)
 - [go-13](https://www.devdungeon.com/content/go)
+- [go-14](https://pkg.go.dev/std)
