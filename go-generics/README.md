@@ -74,7 +74,7 @@ type DataStore[T any] interface {
 
 ## Reference
 
-1. <https://go.dev/doc/tutorial/generics>
+1. [x] [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)
 2. <https://go.dev/blog/intro-generics>
 3. <https://tour.ardanlabs.com/tour/eng/generics-basics/1>
 4. <https://www.geeksforgeeks.org/generics-in-golang/>
