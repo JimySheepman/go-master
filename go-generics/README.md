@@ -1,4 +1,91 @@
 # Go Generics
 
-1. [How To Use Generics in Go](https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go)
-2. [Know Go: Generics](https://github.com/bitfield/kg-generics)
+## Beginner Level – Basic Concepts and Usage
+
+- What are Generics in Go?
+  - Purpose and advantages of Generics
+  - Support for generics in Go version 1.18
+- Basic Generic Usage
+  - Generic functions (`func Print[T any](value T)`)
+  - Type parameters (type variables like `T, U, V`)
+  - `any` keyword (to support all types)
+- Writing Simple Generic Functions
+  - Generic `Add[T any](a, b T) T` function
+  - Generic `Swap[T any](x, y T) (T, T)` function
+  - Generic `Compare[T comparable](a, b T) bool` function
+- Applications and Exercises
+  - Write a generic `PrintSlice[T any](s []T)` function
+  - Write a generic `FindMax[T int | float64](s []T) T` function
+
+## Intermediate – Generic Data Structures and Constraints
+
+- Generic Data Structures
+  - Using generic `struct`
+  - Using generic `map` and `slice`
+- Using `Constraints`
+  - Using `any` and `comparable`
+  - Adding constraints with custom interfaces
+  - Allowing specific types with `type constraints`
+
+```go
+type Number interface {
+    int | float64
+}
+func Sum[T Number](numbers []T) T { ... }
+```
+
+- Generic Interface Usage
+  - Defining a custom interface
+  - Generic `Reader[T any]` and `Writer[T any]` interfaces
+- Performance and Memory Usage
+  - Impact of Generics on performance
+  - Understanding how Go compiles generics
+  - When to use generics, when not to use them?
+- Practices and Exercises
+  - Write a generic `Stack[T any]` data structure
+  - Write a generic `Queue[T any]` data structure
+  - Implement the generic `Min[T Number](a, b T) T` function
+
+## Advanced – In-Depth Generics and Real World Usage
+
+- More Complex Constraints
+  - Multiple type support with `type sets`
+  - Using multiple generic parameters (`func Merge[K comparable, V any](m1, m2 map[K]V) map[K]V`)
+  - Using `reflect` and generics
+- Generic Methods and Interfaces
+  - Structures containing generic methods
+  - Structures implementing generic interfaces
+
+```go
+type DataStore[T any] interface {
+    Save(data T)
+    Get(id int) T
+}
+```
+
+- Real World Scenarios
+  - Write a generic cache system
+  - Using a generic repository pattern
+  - JSON serialization/deserialization using generics
+- Practices and Exercises
+  - Write a generic LRU Cache implementation
+  - Write a generic Observer Pattern example
+  - Write a generic Event Dispatcher
+
+## Reference
+
+1. <https://go.dev/doc/tutorial/generics>
+2. <https://go.dev/blog/intro-generics>
+3. <https://tour.ardanlabs.com/tour/eng/generics-basics/1>
+4. <https://www.geeksforgeeks.org/generics-in-golang/>
+5. <https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/>
+6. <https://www.freecodecamp.org/news/generics-in-golang/>
+7. <https://dev.to/jpoly1219/intro-to-generics-in-go-36am>
+8. <https://gobyexample.com/generics>
+9. <https://medium.com/hprog99/mastering-generics-in-go-a-comprehensive-guide-4d05ec4b12b>
+10. <https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go#prerequisites>
+11. <https://bitfieldconsulting.com/posts/generic-types>
+12. <https://bitfieldconsulting.com/posts/generics>
+13. <https://bitfieldconsulting.com/posts/generic-set>
+14. [How To Use Generics in Go](https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go)
+15. [Know Go: Generics](https://github.com/bitfield/kg-generics)
