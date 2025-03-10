@@ -1,10 +1,9 @@
 package funcmap_test
 
 import (
+	"go-generics/04/funcmap"
 	"testing"
 	"unicode"
-
-	"github.com/bitfield/funcmap"
 )
 
 func TestFuncMap_AppliesDoubleTo2AndReturns4(t *testing.T) {
