@@ -76,15 +76,14 @@ type DataStore[T any] interface {
 
 1. [x] [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)
 2. [x] [Ardanlabs Generics](https://tour.ardanlabs.com/tour/eng/generics-basics/1)
-3. <https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/>
-4. <https://www.freecodecamp.org/news/generics-in-golang/>
-5. <https://dev.to/jpoly1219/intro-to-generics-in-go-36am>
-6. <https://gobyexample.com/generics>
-7. <https://medium.com/hprog99/mastering-generics-in-go-a-comprehensive-guide-4d05ec4b12b>
-8. <https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go#prerequisites>
-9. <https://bitfieldconsulting.com/posts/generic-types>
-10. <https://bitfieldconsulting.com/posts/generics>
-11. <https://bitfieldconsulting.com/posts/generic-set>
-12. <https://www.geeksforgeeks.org/generics-in-golang/>
-13. [How To Use Generics in Go](https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go)
-14. [Know Go: Generics](https://github.com/bitfield/kg-generics)
+3. [ ] <https://www.freecodecamp.org/news/generics-in-golang/>
+4. [ ] <https://dev.to/jpoly1219/intro-to-generics-in-go-36am>
+5. [ ] <https://gobyexample.com/generics>
+6. [ ] <https://medium.com/hprog99/mastering-generics-in-go-a-comprehensive-guide-4d05ec4b12b>
+7. [ ] <https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go#prerequisites>
+8. [ ] <https://bitfieldconsulting.com/posts/generic-types>
+9. [ ] <https://bitfieldconsulting.com/posts/generics>
+10. [ ] <https://bitfieldconsulting.com/posts/generic-set>
+11. [ ] <https://www.geeksforgeeks.org/generics-in-golang/>
+12. [ ] [How To Use Generics in Go](https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go)
+13. [ ] [Know Go: Generics](https://github.com/bitfield/kg-generics)
