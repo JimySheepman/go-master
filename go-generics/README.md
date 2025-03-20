@@ -78,9 +78,9 @@ type DataStore[T any] interface {
 2. [x] [Ardanlabs Generics](https://tour.ardanlabs.com/tour/eng/generics-basics/1)
 3. [x] [Go by Example: Generics](https://gobyexample.com/generics)
 4. [x] [Know Go: Generics](https://github.com/bitfield/kg-generics2)
+5. [x] <https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go#prerequisites>
+6. [x] <https://itnext.io/a-comprehensive-guide-to-generics-in-go-5a9dcda5669c>
 
-5. [ ] <https://www.digitalocean.com/community/tutorials/how-to-use-generics-in-go#prerequisites>
-6. [ ] <https://itnext.io/a-comprehensive-guide-to-generics-in-go-5a9dcda5669c>
 7. [ ] <https://www.kelche.co/blog/go/golang-generics/>
 8. [ ] <https://100go.co/9-generics/>
 9. [ ] <https://blog.merovius.de/posts/2024-01-05_constraining_complexity/>
